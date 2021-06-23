@@ -1,0 +1,83 @@
+<div>
+<h1 class="header-text">Add your games here!</h1>
+
+<form [formGroup] ="gameForm" (ngSubmit)="onSubmit()" class="formClass">
+    <div class = "fieldInput">
+        <label for="title"> Title</label>
+        <div>
+            <input required id="title" type="text" formControlName="title">
+            <div style="color: red;" *ngIf="title.invalid && (title.dirty || title.touched) && title.errors?.required">
+                Title is required
+            </div>
+            <div style="color: red;" *ngIf="title.invalid && (title.dirty || title.touched) && title.errors?.minlength">
+                Title needs to be more than 2 chars
+            </div>
+        </div>
+    </div>
+
+    <div class = "fieldInput">
+        <label for="category"> Category</label>
+        <select matNativeControl aria-label="Category" formControlName="category">
+            <option value="" disabled>Choose Category</option>
+            <option *ngFor="let option of categories" [value]="option.categoryText">
+                <span>{{option.categoryText}}</span>
+            </option>
+        </select>
+    </div>
+
+    <div class = "fieldInput">
+        <label for="subtitle"> Subtitle</label>
+        <input id="subtitle" type="text" formControlName="subtitle">
+    </div>
+
+    <div class = "fieldInput">
+        <label for="description"> Description</label>
+        <input id="description" type="text" formControlName="description">
+    </div>
+
+    <div class = "fieldInput">
+        <label for="description">Tags (comma separated)</label>
+        <input id="description" type="text" formControlName="tags">
+    </div>
+
+    <div class = "fieldInput">
+        <label for="imageurl"> Image URL</label>
+        <div>
+            <input id="imageurl" type="text" formControlName="imageurl">
+            <button type="button" (click)="addImageClicked()"> Add Image URL</button>
+            <button type="button" (click)="removeLastImageClicked()"> Remove Last</button>
+            <div>Image url appended: {{getImagesString()}}</div>
+        </div>
+        
+    </div>
+
+    <div class = "fieldInput">
+        <label for="author"> Author</label>
+        <input id="author" type="text" formControlName="author">
+    </div>
+
+    <div class = "fieldInput">
+        <label for="replayBundleUrl"> Replay Url</label>
+        <input id="replayBundleUrl" type="text" formControlName="replayBundleUrl">
+    </div>
+
+    <div class = "fieldInput">
+        <label for="isStreamable"> Is Streamable</label>
+        <input id="isStreamable" type="checkbox" formControlName="isStreamable">
+    </div>
+
+    <div class = "fieldInput">
+        <label for="isDownloadable"> Is Downloadable</label>
+        <input id="isDownloadable" type="checkbox" formControlName="isDownloadable">
+    </div>
+
+    <div class = "fieldInput">
+        <label for="isPremium"> Is Premium</label>
+        <input id="isPremium" type="checkbox" formControlName="isPremium">
+    </div>
+
+
+    <button type="submit" [disabled]="gameForm.invalid"> Save Game</button>
+
+</form>
+</div>
