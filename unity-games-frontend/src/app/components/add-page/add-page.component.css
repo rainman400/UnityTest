@@ -1,0 +1,17 @@
+
+
+.header-text {
+    display: flex;
+    justify-content: center;
+}
+
+.formClass {
+    margin-left: 100px;
+}
+
+.fieldInput{
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+}
+
