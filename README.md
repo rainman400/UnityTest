@@ -4,23 +4,27 @@ Unity Full Stack Technical Challenge -Ravish
 2. extract the Unity project from the UnityFullStackSampleProject.zip
 
 DATABASE: MySQL
+
 4. Open up the Database folder and import the scripts to your favorite SQL DB workbench. This should populate the table schemas and data.
 5. Start up the Database, it should run on localhost://3306, if it is a different port then apply that port to the application.properties in the next step.
-6. Create a PROXY_USER account if not created, which would have CREATE,UPDATE,DELETE,INSERT privileges on the DB. This is used on the server to access the DB. 
+6. Create a PROXY_USER account if not created, which would have CREATE,UPDATE,DELETE,INSERT privileges on the DB. This is used on the server to access the DB. The password is 'password' (super secure I know) 
 
 BACKEND: SPRING BOOT
+
 7. Open the Server Component in visual Studio, navigate to application.properties and update the port of the DB server. Incase a different username and password was used in Step 6, this would also need to be updated here
 8. Navigate to RestServiceApplication.java and Start the local server. This should run on localhost:8080
 9. OPTIONAL: you could run the test cases in GameControllerTests.java to check to see if everything is stable. 
 
 FRONTEND: ANGULAR
+
 9. Extract the angular project. 
-10. In a cmd window, navigate to the app folder "unity-games-frontend\src\app\" and run 'npm install' (this is assuming you have the angular cli installed, if not https://angular.io/cli thats the link)
-11. once the node modules are downloaded, run 'ng serve'. It will tell you the port at which the frontend is running. open up that in a browser window, it should open up a basic add game window.
-12. If the server and DB are up, feel free to add games. The Title is the only required field. The Category is a drop down list that is populated from the server. It is fetched from the DB, new categories can always be added to the DB directly (did not implement an endpoint to add new categories sadly, ran out of time :( )
-13. multiple image urls can be added. Tags are a comma separated list
+11. In a cmd window, navigate to the app folder "unity-games-frontend\src\app\" and run 'npm install' (this is assuming you have the angular cli installed, if not https://angular.io/cli thats the link)
+12. once the node modules are downloaded, run 'ng serve'. It will tell you the port at which the frontend is running. open up that in a browser window, it should open up a basic add game window.
+13. If the server and DB are up, feel free to add games. The Title is the only required field. The Category is a drop down list that is populated from the server. It is fetched from the DB, new categories can always be added to the DB directly (did not implement an endpoint to add new categories sadly, ran out of time :( )
+14. multiple image urls can be added. Tags are a comma separated list
 
 UNITY:
+
 14. Extract the project and run the Unity Scene. It should auto populate everything from the server. Hitting the premium button should reinstantiate the carousel with the whole list of games, including premium ones. 
 
 
@@ -31,3 +35,4 @@ Challenges faced:
 4. The Unity section was pretty straightforward once I rememebered that coroutines existed. I would have liked to implement separate sections for categories. 
 5. Angular portion was also pretty straightforward, I would have loved to make the UI look better but again, time constraints... 
 6. I haven't worked much with Docker so I didn't do that part, given a couple more days I am sure I would have had that up and running too. 
+7. I also would have added some security measures on the api and ui, so that only users that have access to the api with the right scopes can access it. 
